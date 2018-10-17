@@ -1,16 +1,16 @@
 # Markdown学习笔记
 本文档用于记录Markdown的主要通用语法和GFM的特征。
-# 简介
+## 简介
 
 Markdown是一种轻量级标记语言，它和HTML兼容，可以转换为HTML格式发布。甚至在Markdown工具中，可以嵌入HTML语句。相对于HTML，它的语法更简洁易读。
 
 
 
-# 语法
-## 字符
+## 语法
+### 字符
 
 
-# GFM
+## GFM
 You can use Markdown most places around GitHub:
 
 Gists
