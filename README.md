@@ -1,12 +1,27 @@
 # Markdown学习笔记
-本文档用于记录Markdown的主要通用语法和GFM的特征。
+
+本文档是Markdown语言和GFM的学习笔记，主要参考文档为[CommonMark Spec](https://spec.commonmark.org/0.28/)和[GitHub Flavored Markdown Spec](https://github.github.com/gfm/).
+
 ## 简介
 
-Markdown是一种轻量级标记语言，它和HTML兼容，可以转换为HTML格式发布。甚至在Markdown工具中，可以嵌入HTML语句。相对于HTML，它的语法更简洁易读，但不能够实现HTML的所有功能。
+Markdown是一种轻量级标记语言，它和HTML兼容，可以转换为HTML格式发布。和其他的轻量标记语言相比，MarkDown的撰写并不是最容易的，但是它的一些特性，比如说缩进，使得代码非常容易阅读。
+
+## 语法要素和结构
+
+任意字符串都可以是有效的Markdown文档。
+
+一个*字符*是一个Unicode代码点。规范本身并不指定编码（encoding），但是某个具体的解析器可能会限制编码的类型。
+一个*行*由字符（不包括换行`U+000A`和回车`U+000D`)和行结束符组成。行结束符是一个换行符`U+000A`或者回车符`U+000D`或者回车符跟随一个换行符。如果一个行不包含任何字符，或者只包含空格`U+0020`或制表符`U+0009`，侧称作*空行*（blank line）。
+
+行内的制表符不会展开为空格。但是，如果空格字符
+Tabs in lines are not expanded to spaces. However, in contexts where whitespace helps to define block structure, tabs behave as if they were replaced by spaces with a tab stop of 4 characters.
+
+Thus, for example, a tab can be used instead of four spaces in an indented code block. (Note, however, that internal tabs are passed through as literal tabs, not expanded to spaces.)
 
 
-`test`
-## 语法
+  test
+
+
 ### 优先级
 块结构（block structure），比如段落，块引用，列表，
 
