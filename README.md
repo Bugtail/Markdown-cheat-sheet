@@ -40,19 +40,46 @@ Setext标题行不需要被空行隔开，但它不能够打断段落。
 ### 3.4 Indented code blocks
 缩进代码块是由空行隔开的 indented chunks。Indented chunks 指的是行首缩进4个及以上空格字符的一系列非空白行。
 
-由于缩进代码块是不能够打断段落的，所以需要空白行和前面的段落隔开, 不过，对于后面的段落，空白行是不需要的。
+由于缩进代码块是不能够打断段落的，所以需要空白行和前面的段落隔开。不过，对于后面的段落，空白行是不需要的。
 
+### 3.5 Fenced code blocks
+代码围栏由至少三个连续的撇号字符（\`）或波浪字符（\~）组成（不能混用）。围栏式代码块是由代码围栏围起来的代码块，省去了代码块每行都需要缩进的麻烦。被围起来的所有行都会被当作字面意义的文本处理，而不会当作行内元素解析。如果结束处的围栏缺失，那么剩下的所有内容都会当作代码处理，直至文档结束。
 
+需要注意的是，代码围栏本身的缩进不能超过3个空格字符。代码块结束处的围栏字符要和开始处使用的一样，并且个数不能少于开始处的围栏，不过缩进空格数可以不一样。另外，开始处的代码围栏如果缩进了N个字符，那么代码行如果有缩进的话，会被移除最多N个字符的缩进，或者所有缩进。
+
+另外，开始出的围栏后面可以跟随一个字符串作为Info String（开始和末尾的空格会被去掉）。Info String不能含有任何撇号字符，它的第一个word通常用于指定代码的语言，将代码渲染为code tag相应的类属性。
+
+围栏式代码块不需要被空行隔开，它也能够打断段落。
+
+### 3.6 HTML blocks
+总共有7类HTML标签可以直接在Markdown文档内直接使用。
+
+### 3.7 Link reference definitions
+链接引用定义由一个缩进不超过3个空格的链接标签，一个冒号（\:），可选的空格（可以包含换行），一个目标，可选的空格（可以包含换行）和可选的链接标题（必须由空格和目标隔开）组成。链接引用可以定义在链接使用之前或者之后。
+
+链接标签必须包含在方括号([]）内，标签不能为空，最多999个字符，不能含有未转义的方括号。
+
+链接引用定义不能够打断段落，但是它可以直接跟在其他的块元素后面，比如标题和thematic breaks。而且后面不需要跟空行。多个链接引用定义可以连续定义，之间不需要空行隔开。
+
+链接引用定义也可以定义在 block containers 里面，比如 lists 和 block quotations，但是他们能对整个文档起作用，而不是仅仅作用于 container 内部。
+
+### 3.8 Paragraphs
+A sequence of non-blank lines that cannot be interpreted as other kinds of blocks forms a paragraph. The contents of the paragraph are the result of parsing the paragraph’s raw content as inlines. The paragraph’s raw content is formed by concatenating the lines and removing initial and final whitespace.
+
+### 3.9 Blank lines
+Blank lines between block-level elements are ignored, except for the role they play in determining whether a list is tight or loose.
+
+Blank lines at the beginning and end of the document are also ignored.
+
+## 4. Container blocks
+### 4.1 Block quotes
 
 
 
 ## GFM
-You can use Markdown most places around GitHub:
+GibHub Flavored Markdown 除了支持 CommonMark的各种功能以外，还具备一些自己定义的功能：
 
-Gists
-Comments in Issues and Pull Requests
-Files with the .md or .markdown extension
-For more information, see “Writing on GitHub” in the GitHub Help.
+- 可以定义 tables
 
 
 
