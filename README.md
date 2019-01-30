@@ -72,7 +72,25 @@ Blank lines between block-level elements are ignored, except for the role they p
 Blank lines at the beginning and end of the document are also ignored.
 
 ## 4. Container blocks
-### 4.1 Block quotes
+A container block is a block that has other blocks as its contents. There are two basic kinds of container blocks: block quotes and list items. Lists are meta-containers for list items.
+### 4.1 块引用
+块引用的标记有0-3个缩进空格和一个 ">" 字符组成，后面也可以再跟一个空格。
+
+### 4.2 列表元素
+列表标记有两种：1）bullet list marker：-, +, 或 * 字符；2）ordered list marker： 由1-9位数字和一个 . 或 ) 字符组成。
+
+在定义列表元素时，标记后需要有1-4个空格，元素内的内容的缩进应该不小于标记的缩进+标记的本身的宽度+跟随的空格。如果两行之间没有用大于一个空行隔开，则认为后续还是属于列表元素内容。
+
+### 4.3 列表
+A list is a sequence of one or more list items of the same type. The list items may be separated by any number of blank lines.
+
+A list is an ordered list if its constituent list items begin with ordered list markers, and a bullet list if its constituent list items begin with bullet list markers.
+
+The start number of an ordered list is determined by the list number of its initial list item. The numbers of subsequent list items are disregarded.
+
+## 5 Inlines
+### 5.1 转义字符
+
 
 
 
@@ -80,6 +98,9 @@ Blank lines at the beginning and end of the document are also ignored.
 GibHub Flavored Markdown 除了支持 CommonMark的各种功能以外，还具备一些自己定义的功能：
 
 - 可以定义 tables
+- 可以使用Task list items, 在正常的list marker后面跟一个空格和一个 [ ] 或 [x]符号来显示一个check box
+
+
 
 
 
