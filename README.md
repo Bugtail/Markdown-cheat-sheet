@@ -91,6 +91,20 @@ The start number of an ordered list is determined by the list number of its init
 ## 5 Inlines
 ### 5.1 转义字符
 
+    \!  \"  \#  \$  \%  \&  \'  \(  \)  \*  \+  \,  \-  \.  \/  \:  
+\!  \"  \#  \$  \%  \&  \'  \(  \)  \*  \+  \,  \-  \.  \/  \:  
+
+    \;  \<  \=  \>  \?  \@  \[  \\  \]  \^  \_  \`  \{  \|  \}  \~
+\;  \<  \=  \>  \?  \@  \[  \\  \]  \^  \_  \`  \{  \|  \}  \~
+
+### 5.2 字符实体引用
+在SGML、 HTML与XML文档，如果某些Unicode字符在文档的当前编码方式(如ISO-8859-1)中不能直接表示，那么可以通过字符值引用或者字符实体引用两种转义序列来表示这些不能直接编码的字符。 
+
+在Markdown文档中，字符实体引用（Entity references）由\"\&\"，任意有效的HTML5实体名称，和\"\;\"组成。而字符值引用（numeric character references）使用的是字符的代码点（code points）。如果采用的是10进制，字符值引用由\"\&\#\"，1-8为阿拉伯数字，和\"\;\"组成。如果采用的是16进制，则由\"\&\#\"，"X"或"x"，1-8位16进制数字，和\"\;\"组成。
+
+有效的实体引用和相应的代码点可以参考文档https://html.spec.whatwg.org/multipage/entities.json
+
+
 
 
 
