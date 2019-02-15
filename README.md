@@ -117,17 +117,25 @@ Code Span由1个或多个撇号字符\(\`\)开始，由同样个数的撇号字�
 
 链接文本由方括号括起来\(\[\]\)，可以为空。链接目的地如果非空的话，可以不需要用尖括号括起来\<\>。链接标题需要用单/双引号或者圆括号括起来。
 
-行内链接由一个链接文本，紧接一个左括号\(，一个可选的空格，一个可选的链接目的地，一个可选的链接标题（和目的地用空格隔开），一个可选的空格，和一个右括号\)组成。
+行内链接由一个链接文本，紧接一个左括号\(，一个可选的空格，一个可选的链接目的地，一个可选的链接标题（和目的地用空格隔开），一个可选的空格，和一个右括号\)组成。网站地址需要加上https\:\/\/等，否者会当作文档内部地址处理。
+
+引用链接有三种类型：
+
+- full reference link，
+
+There are three kinds of reference links: full, collapsed, and shortcut.
+
+A full reference link consists of a link text immediately followed by a link label that matches a link reference definition elsewhere in the document.
+
+A link label begins with a left bracket ([) and ends with the first right bracket (]) that is not backslash-escaped. Between these brackets there must be at least one non-whitespace character. Unescaped square bracket characters are not allowed inside the opening and closing square brackets of link labels. A link label can have at most 999 characters inside the square brackets.
+
+One label matches another just in case their normalized forms are equal. To normalize a label, strip off the opening and closing brackets, perform the Unicode case fold, strip leading and trailing whitespace and collapse consecutive internal whitespace to a single space. If there are multiple matching reference link definitions, the one that comes first in the document is used. (It is desirable in such cases to emit a warning.)
+
+The contents of the first link label are parsed as inlines, which are used as the link’s text. The link’s URI and title are provided by the matching link reference definition.
 
 
 
-An inline link consists of a link text followed immediately by a left parenthesis (, optional whitespace, an optional link destination, an optional link title separated from the link destination by whitespace, optional whitespace, and a right parenthesis ). 
-
-The link’s text consists of the inlines contained in the link text (excluding the enclosing square brackets). The link’s URI consists of the link destination, excluding enclosing <...> if present, with backslash-escapes in effect as described above. The link’s title consists of the link title, excluding its enclosing delimiters, with backslash-escapes in effect as described above.
-
-
-
-[aaa](<baidu.com> "why")
+[aaa](<htps://www.baidu.com> "why")
 
 ### 5.6
 
