@@ -51,10 +51,10 @@ Setext标题行不需要被空行隔开，但它不能够打断段落。
 
 围栏式代码块不需要被空行隔开，它也能够打断段落。
 
-### 3.6 HTML blocks
+### 3.6 HTML块
 总共有7类HTML标签可以直接在Markdown文档内直接使用。
 
-### 3.7 Link reference definitions
+### 3.7 链接引用定义
 链接引用定义由一个缩进不超过3个空格的链接标签，一个冒号（\:），可选的空格（可以包含换行），一个目标，可选的空格（可以包含换行）和可选的链接标题（必须由空格和目标隔开）组成。链接引用可以定义在链接使用之前或者之后。
 
 链接标签必须包含在方括号([]）内，标签不能为空，最多999个字符，不能含有未转义的方括号。
@@ -63,10 +63,10 @@ Setext标题行不需要被空行隔开，但它不能够打断段落。
 
 链接引用定义也可以定义在 block containers 里面，比如 lists 和 block quotations，但是他们能对整个文档起作用，而不是仅仅作用于 container 内部。
 
-### 3.8 Paragraphs
+### 3.8 段落
 A sequence of non-blank lines that cannot be interpreted as other kinds of blocks forms a paragraph. The contents of the paragraph are the result of parsing the paragraph’s raw content as inlines. The paragraph’s raw content is formed by concatenating the lines and removing initial and final whitespace.
 
-### 3.9 Blank lines
+### 3.9 空行
 Blank lines between block-level elements are ignored, except for the role they play in determining whether a list is tight or loose.
 
 Blank lines at the beginning and end of the document are also ignored.
@@ -104,15 +104,39 @@ The start number of an ordered list is determined by the list number of its init
 
 有效的实体引用和相应的代码点可以参考文档https://html.spec.whatwg.org/multipage/entities.json
 
+### 5.3 代码Spans
+span元素是用來对行内元素进行分组，以便通过样式对它们进行格式化。它本身沒有任何意思。
+
+Code Span由1个或多个撇号字符\(\`\)开始，由同样个数的撇号字符\(\`\)结束。撇号字符\(\`\)中间的字符就是code span的内容。内容开始和结尾处的空格和行结束符会被移除，多个连续空格会被合并为一个。
+
+### 5.4 强调和重点
+由一个星号\(\*\)或下划线\(\_\)包裹的文本会被强调（emphasis)，被两个星号\(\*\)或下划线\(\_\)包裹的文本会被重点强调（strong emphasis）。
+
+### 5.5 链接
+链接（links）包含链接文本（link text），链接目的地（link destination, the URI that is the link destination）和可选的链接标题（link title). 在Morkdonw里有两类链接：1）行内链接（inline links），目的地和标题都是紧挨着链接文本定义的；2）引用链接（reference links），目的地和标题定义于文档其他地方。
+
+链接文本由方括号括起来\(\[\]\)，可以为空。链接目的地如果非空的话，可以不需要用尖括号括起来\<\>。链接标题需要用单/双引号或者圆括号括起来。
+
+行内链接由一个链接文本，紧接一个左括号\(，一个可选的空格，一个可选的链接目的地，一个可选的链接标题（和目的地用空格隔开），一个可选的空格，和一个右括号\)组成。
 
 
 
+An inline link consists of a link text followed immediately by a left parenthesis (, optional whitespace, an optional link destination, an optional link title separated from the link destination by whitespace, optional whitespace, and a right parenthesis ). 
+
+The link’s text consists of the inlines contained in the link text (excluding the enclosing square brackets). The link’s URI consists of the link destination, excluding enclosing <...> if present, with backslash-escapes in effect as described above. The link’s title consists of the link title, excluding its enclosing delimiters, with backslash-escapes in effect as described above.
+
+
+
+[aaa](<baidu.com> "why")
+
+### 5.6
 
 ## GFM
 GibHub Flavored Markdown 除了支持 CommonMark的各种功能以外，还具备一些自己定义的功能：
 
 - 可以定义 tables
 - 可以使用Task list items, 在正常的list marker后面跟一个空格和一个 [ ] 或 [x]符号来显示一个check box
+- 可以使用两个波浪符号\(\~\)包裹文本来定义删除线
 
 
 
