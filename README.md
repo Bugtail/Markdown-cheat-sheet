@@ -55,7 +55,7 @@ Setext标题行不需要被空行隔开，但它不能够打断段落。
 总共有7类HTML标签可以直接在Markdown文档内直接使用。
 
 ### 3.7 链接引用定义
-链接引用定义由一个缩进不超过3个空格的链接标签，一个冒号（\:），可选的空格（可以包含换行），一个目标，可选的空格（可以包含换行）和可选的链接标题（必须由空格和目标隔开）组成。链接引用可以定义在链接使用之前或者之后。
+链接引用定义（link reference definition）由一个缩进不超过3个空格的链接标签，一个冒号（\:），可选的空格（可以包含换行），一个目标，可选的空格（可以包含换行）和可选的链接标题（必须由空格和目标隔开）组成。链接引用可以定义在链接使用之前或者之后。
 
 链接标签必须包含在方括号([]）内，标签不能为空，最多999个字符，不能含有未转义的方括号。
 
@@ -115,15 +115,19 @@ Code Span由1个或多个撇号字符\(\`\)开始，由同样个数的撇号字�
 ### 5.5 链接
 链接（links）包含链接文本（link text），链接目的地（link destination, the URI that is the link destination）和可选的链接标题（link title). 在Morkdonw里有两类链接：1）行内链接（inline links），目的地和标题都是紧挨着链接文本定义的；2）引用链接（reference links），目的地和标题定义于文档其他地方。
 
-链接文本由方括号括起来\(\[\]\)，可以为空。链接目的地如果非空的话，可以不需要用尖括号括起来\<\>。链接标题需要用单/双引号或者圆括号括起来。
+**链接文本**由方括号括起来\(\[\]\)，可以为空。**链接目的地**如果非空的话，可以不需要用尖括号括起来\<\>。**链接标题**需要用单/双引号或者圆括号括起来。
 
 行内链接由一个链接文本，紧接一个左括号\(，一个可选的空格，一个可选的链接目的地，一个可选的链接标题（和目的地用空格隔开），一个可选的空格，和一个右括号\)组成。网站地址需要加上https\:\/\/等，否者会当作文档内部地址处理。
 
 引用链接有三种类型：
 
-- full reference link，
+- full reference link，由链接文本紧接一个链接标签（link label）组成，链接标签要和在文档其他地方定义的链接引用（link reference）匹配。链接标签由方括号包裹。
+~~~
+    [foo][bar]
 
-There are three kinds of reference links: full, collapsed, and shortcut.
+    [bar]: /url "title"
+~~~
+- 
 
 A full reference link consists of a link text immediately followed by a link label that matches a link reference definition elsewhere in the document.
 
